@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //modify or update and delete
+        var a = ["Lekhit",22,"Male","Develoer"];
+        document.write(a + "<br>");
+
+        a[1]=25;
+        document.write(a + "<br>");
+
+        delete a[3];
+        document.write(a + "<br>");
+    </script>
+    <hr>
+    <h1>sorting and reverse</h1>
+    <script>
+        // sorting and reverse
+        var a = ["Rohit","Yogesh","Prajay","Dipak","Nakul","Goli","Vaibhav","Sudarshan","Kaushal","Om"];
+        document.write(a + "<br>");
+        a.sort();
+        document.write(a + "<br>");
+        a.reverse();
+        document.write(a + "<br>");
+    </script>
+    <hr>
+    <script>
+        document.write("<h1>Push And Pop</h1>");
+        var a = ["Rohit","Yogesh","Prajay","Dipak","Nakul","Goli","Vaibhav","Sudarshan","Kaushal","Om"];
+        document.write(a + "<br>");
+        a.pop();
+        a.pop();
+        document.write(a + "<br>");
+        a.push("Lekhit");
+        a.push("Rohan");
+        a.push("Anand")
+        document.write(a + "<br>");
+    </script>
+    <hr>
+    <script>
+        document.write("<h1>shift pop and unshift Push</h1>");
+        var a = ["Rohit","Yogesh","Prajay","Dipak","Nakul","Goli","Vaibhav","Sudarshan","Kaushal","Om"];
+        document.write(a + "<br>");
+        a.shift();
+        a.shift();
+        document.write(a + "<br>");
+        a.unshift("Lekhit");
+        document.write(a + "<br>");
+    </script>
+    <hr>
+    <script>
+        document.write("<h1>Concat and Join</h1>");
+        var a = ["Rohit","Yogesh","Prajay","Dipak","Nakul","Goli","Vaibhav","Sudarshan","Kaushal","Om"];
+        var b = ["Yogeshwar","Jeet","Kiran","Sakshi","Akshada","Samiksha","Kasturi"];
+        var c = ["Jeetesh","Akash","Nayan","Harsh","Aditya","Aniket"];
+        
+        var d = a.concat(b,c);
+        document.write(d + "<br>");
+
+        var e = d.join("/");
+        document.write(d + "<br>");
+    </script>
+</body>
+</html>

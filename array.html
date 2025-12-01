@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Array Example</h1>
+    <hr>
+    <script>
+        let cars = ["BMW", "Audi", "Tata", "Mahindra", "Toyota", "Suzuki", "Honda"];
+        for(let i=0; i<cars.length; i++){
+            document.write(cars[i] + "<br>");
+        }
+    </script>
+
+    <hr><h1>addition of Numbers</h1><hr>
+
+    <script>
+        var array = [10,20,30,40,50,60,70,80,90];
+        var sum = 0;
+        for(var i = 0; i<array.length; i++){
+            document.write(array[i] + "<br>");
+            sum += array[i];
+        }
+        document.write("Addition of Numbers : " + sum)
+    </script>
+
+    <hr><h1>addition of Even Numbers</h1><hr>
+    <script>
+        var array2 = [1,3,6,8,9,12,13,16,20];
+        var sum = 0;
+        for(var a=0; a<array2.length; a++){
+            if(a % 2){
+                document.write(array2[a] + "<br>");
+                sum += array2[a];
+            }
+        }
+        document.write("Addition of even Numbers : " + sum)
+    </script>
+</body>
+</html>
