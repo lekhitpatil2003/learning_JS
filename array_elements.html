@@ -65,5 +65,24 @@
         var e = d.join("/");
         document.write(d + "<br>");
     </script>
+    <hr><hr>
+    <script>
+        document.write("<h1> Slice and Splice </h1>");
+        document.write("<h3> 1. Slice </h3> <hr> ");
+        
+        var a = ["Rohit","Yogesh","Prajay","Dipak","Nakul","Goli","Vaibhav","Sudarshan","Kaushal","Om"];
+        document.write(a + "<br>");
+
+        // slice(start,end)
+        var b = a.slice(3,6);
+        document.write(b + "<br>"+"<hr>");
+
+        document.write("<h3> 2. Splice </h3> <hr> ");
+        var a = ["Rohit","Yogesh","Prajay","Dipak","Nakul","Goli","Vaibhav","Sudarshan","Kaushal","Om"];
+        document.write(a + "<br>");
+        //splice(start, deleteCount, item1, item2, ...)
+        a.splice(3,0,"Lekhit","Ganesh","Anand","Suyog");
+        document.write(a + "<br>");
+    </script>
 </body>
 </html>

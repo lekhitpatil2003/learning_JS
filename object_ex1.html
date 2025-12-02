@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = {
+            fname : 'Lekhit',
+            lname : 'Patil',
+            age : 22,
+            email : 'lekhitpatil22@gmail.com',
+            players : ['Yuvraj','Virat','Dhoni','Jadeja'], //Array in object
+            address : {
+                'city' : 'Nashik',
+                'State' : 'Maharashtra',
+                'Country' : 'India',
+                'Pincode' : 422010
+            },
+            phone : 8959695847,
+            message : "Today i am going to mumbai"
+        }
+        document.write("This is " + a.fname + "My Surname is " + a.lname + "my age is " + a.age +"Years" + "My email id is" + a.email + "<br>");
+
+        document.write("My fav. player is" + a.players[2] + "My Address is " + a.address.city + "<br>");
+    </script>
+    <hr>
+    <script>
+        var b = {
+            id: 102,
+            fname: "Lekhit",
+            lname: " Patil",
+            age: 24,
+            department: "Software Development",
+            salary : 30000.00,
+            address: {
+                'city' : "Pune",
+                'state' : "Maharashtra",
+                'pincode' : 411004
+            },
+            skills: ["Java", "SQL", "JavaScript"]
+        }
+        document.write("my name is " + b.fname + b.lname + "My id is " + b.id)
+    </script>
+</body>
+</html>
