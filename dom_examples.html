@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- example 1 -->
+    <h1>Change Tect using DOM</h1>
+    <h2 id="title">Old Heading</h2>
+    <button onclick="changetext()">Change Text</button>
+    <hr>
+
+    <!-- example 2 -->
+    <h1>Change style color using Dom</h1>
+    <h2 id="msg">Hello its Lekhit</h2>
+    <button onclick="changecolor()">Change Color</button>
+    <hr>
+
+    <!-- example 3 -->
+    <h1>Change image using DOM</h1>
+    <img src="img/dog-7019418_640.jpg" id="myimg" width="300" alt="myimg">
+    <button onclick="changeImage()">Change Image</button>
+    <hr>
+
+    <!-- example 4 -->
+    <h1>Input from user</h1>
+    <input type="text" id="nameInput" placeholder="Enter Name">
+    <button onclick="showName()">Submit</button>
+
+    <h3 id="output"></h3>
+    <hr>
+
+    <!-- example 5 -->
+    <h1>Delete Line</h1>
+    <p id="deleteme">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente excepturi hic eum illo minus,
+        suscipit optio? Dolores blanditiis ipsa animi cupiditate accusantium amet iure rem distinctio harum ea, eius
+        iusto commodi ducimus architecto ipsam officiis cumque quaerat debitis, fuga minima!</p>
+    <button onclick="removepara()">Remove</button>
+    <hr>
+
+    <!-- example 6 -->
+    <p id="para1" style="font-size: 16px;">Change my font size</p>
+    <button onclick="increase()"> + </button>
+    <button onclick="decrease()"> - </button>
+    <hr>
+
+    <!-- example 7 -->
+    <button onclick="toggleTheme()">Toggele Theme</button>
+
+    <h2>Welcome to my Website</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, dolorum, fugit incidunt nostrum dignissimos rerum
+        tempora eos distinctio commodi ut deleniti quidem cumque tempore cum praesentium amet aspernatur reiciendis qui?
+        Earum, numquam quibusdam exercitationem iste voluptatibus id enim delectus ad ipsam facilis cum aspernatur neque
+        consequuntur optio dignissimos et ex reiciendis, eum nam dicta excepturi ducimus. Voluptatum consequuntur
+        sapiente, esse excepturi, eum voluptatem maxime fugiat, molestias maiores commodi corrupti mollitia.</p>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            transition: 0.5s;
+        }
+
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+    </style>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+
+
+
+    <script>
+        let size = 16;  // starting font size
+
+        function increase() {
+            size++;
+            document.getElementById("para1").style.fontSize = size + "px";
+        }
+
+        function decrease() {
+            size--;
+            document.getElementById("para1").style.fontSize = size + "px";
+        }
+    </script>
+    <script>
+        function changetext() {
+            document.getElementById('title').innerHTML = 'New Heading';
+        }
+
+        function changecolor() {
+            document.getElementById('msg').style.color = 'red';
+        }
+
+        function changeImage() {
+            document.getElementById('myimg').src = 'img/amsterdam-9936659_640.jpg'
+        }
+
+        function showName() {
+            let name = document.getElementById('nameInput').value;
+            document.getElementById('output').innerHTML = "Hello it's Me " + name;
+        }
+
+        function removepara() {
+            document.getElementById('deleteme').remove();
+        }
+    </script>
+
+</body>
+
+</html>
