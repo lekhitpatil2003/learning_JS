@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .clock_d{
+            font-family: 'Times New Roman', Times, serif;
+            color: blueviolet;
+        }
+    </style>
+
+</head>
+<body>
+    <h2>Digital Clock</h2>
+    <h2 id="clock" class="clock_d"></h2>
+    <p id="msg">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta ab corporis ratione tempore fugiat perferendis accusamus sed reprehenderit adipisci fuga? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos harum alias sed voluptate enim soluta magnam autem sequi quia odio!</p>
+
+    <h1>Counter</h1>
+    <h3 id="count">0</h3>
+    <button onclick="stopCounter()">Stop</button>
+    <button onclick="startCounter()">Start</button>
+
+    <script>
+        let count = 0;
+        let Counter = setInterval(function(){
+            count++;
+            document.getElementById("count").innerHTML = count;
+        },1000);
+        function stopCounter(){
+            clearInterval(Counter);
+        }
+    </script>
+
+    <script>
+        function showTime(){
+            let now = new Date();
+
+            let time = now.toLocaleTimeString();
+
+            document.getElementById("clock").innerHTML = time;
+            setInterval(showTime,1000);
+        }
+
+        showTime();
+    </script>
+
+    <script>
+        setTimeout(function(){
+            document.getElementById('msg').innerHTML = "Hello it's Lekhit";
+        },14000)
+    </script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .contact-section {
+            min-height: 100vh;
+            background: #f6f7fb;
+            padding: 30px 0;
+        }
+
+        .contact-box {
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid #e5e5e5;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            transition: 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 5px rgba(13, 110, 253, 0.3);
+        }
+
+        .submit-btn {
+            background: #0d6efd;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #084298;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="contact-section d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+
+                <div class="col-md-6 col-lg-5 p-4 contact-box shadow">
+
+                    <h3 class="text-center mb-3">Contact Us</h3>
+
+                    <div id="successBox"></div>
+
+                    <form onsubmit="return validate()">
+
+                        <!-- NAME -->
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="name">
+                            <span class="text-danger" id="nameError"></span>
+                        </div>
+
+                        <!-- EMAIL -->
+                        <div class="mb-3">
+                            <label class="form-label">Email Address</label>
+                            <input type="text" class="form-control" id="email">
+                            <span class="text-danger" id="emailError"></span>
+                        </div>
+
+                        <!-- MOBILE -->
+                        <div class="mb-3">
+                            <label class="form-label">Mobile Number</label>
+                            <input type="text" class="form-control" id="mobile">
+                            <span class="text-danger" id="mobileError"></span>
+                        </div>
+
+                        <!-- PASSWORD -->
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password">
+                            <span class="text-danger" id="passwordError"></span>
+                        </div>
+
+                        <!-- CONFIRM PASSWORD -->
+                        <div class="mb-3">
+                            <label class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword">
+                            <span class="text-danger" id="confirmPasswordError"></span>
+                        </div>
+
+                        <!-- MESSAGE -->
+                        <div class="mb-3">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="4"></textarea>
+                            <span class="text-danger" id="messageError"></span>
+                        </div>
+
+                        <!-- GENDER -->
+                        <div class="mb-3">
+                            <label class="form-label">Gender</label><br>
+
+                            <div class="d-flex gap-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" value="Male">
+                                    <label class="form-check-label">Male</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" value="Female">
+                                    <label class="form-check-label">Female</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" value="Other">
+                                    <label class="form-check-label">Other</label>
+                                </div>
+                            </div>
+
+                            <span class="text-danger" id="genderError"></span>
+                        </div>
+
+                        <!-- AGREE -->
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="agree">
+                            <label class="form-check-label">I agree to the Terms & Conditions</label><br>
+                            <span class="text-danger" id="agreeError"></span>
+                        </div>
+
+                        <button type="submit" class="btn submit-btn w-100">Submit</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function validate() {
+
+            // GET VALUES
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const mobile = document.getElementById("mobile").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const confirmPassword = document.getElementById("confirmPassword").value.trim();
+            const message = document.getElementById("message").value.trim();
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const agree = document.getElementById("agree").checked;
+
+            // ERROR ELEMENTS
+            const nameError = document.getElementById("nameError");
+            const emailError = document.getElementById("emailError");
+            const mobileError = document.getElementById("mobileError");
+            const passwordError = document.getElementById("passwordError");
+            const confirmPasswordError = document.getElementById("confirmPasswordError");
+            const messageError = document.getElementById("messageError");
+            const genderError = document.getElementById("genderError");
+            const agreeError = document.getElementById("agreeError");
+
+            // RESET ERRORS
+            nameError.textContent = "";
+            emailError.textContent = "";
+            mobileError.textContent = "";
+            passwordError.textContent = "";
+            confirmPasswordError.textContent = "";
+            messageError.textContent = "";
+            genderError.textContent = "";
+            agreeError.textContent = "";
+
+            let valid = true;
+
+            // NAME
+            if (name.length < 3) {
+                nameError.textContent = "enter valid name";
+                valid = false;
+            }
+
+            // EMAIL
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-z]+\.[a-z]{2,4}$/;
+            if (!emailPattern.test(email)) {
+                emailError.textContent = "Enter a valid email";
+                valid = false;
+            }
+
+            // MOBILE
+            if (!/^\d{10}$/.test(mobile)) {
+                mobileError.textContent = "enter valid Mobile ";
+                valid = false;
+            }
+
+            // PASSWORD
+            if (password.length < 6) {
+                passwordError.textContent = "enteer valid Password";
+                valid = false;
+            }
+
+            // CONFIRM PASSWORD
+            if (password !== confirmPassword) {
+                confirmPasswordError.textContent = "enter valid password.";
+                valid = false;
+            }
+
+            // MESSAGE
+            if (message.length < 5) {
+                messageError.textContent = "enter valid massage";
+                valid = false;
+            }
+
+            // GENDER
+            if (!gender) {
+                genderError.textContent = "Please select gender.";
+                valid = false;
+            }
+
+            // AGREEMENT
+            if (!agree) {
+                agreeError.textContent = "You must accept Terms & Conditions.";
+                valid = false;
+            }
+
+            // SUCCESS
+            if (valid) {
+                document.getElementById("successBox").innerHTML =
+                    `<div class="alert alert-success">Form Submitted Successfully!</div>`;
+            }
+
+            return valid;
+        }
+    </script>
+
+</body>
+
+</html>
